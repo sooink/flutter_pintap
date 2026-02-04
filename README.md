@@ -22,9 +22,15 @@ When using **AI coding agents** to develop Flutter apps, you need to communicate
 
 The AI doesn't know exactly which widget you mean, what file it's in, or what line number.
 
-**Flutter Pintap solves this.** Tap any widget on screen, add a note, and get structured markdown with exact `file:line` locations—ready to paste into your AI agent.
+**Flutter Pintap solves this.** Tap any widget on screen, add a note, and get structured markdown with exact `file:line` locations - ready to paste into your AI agent.
 
 Inspired by [Agentation](https://github.com/benjitaylor/agentation).
+
+<div align="center">
+
+<img src="https://github.com/sooink/flutter_pintap/raw/main/screenshots/demo.gif" width="300px" alt="Flutter Pintap Demo">
+
+</div>
 
 ## Quick Start
 
@@ -66,7 +72,7 @@ class MyApp extends StatelessWidget {
 
 ## Usage
 
-<img src="screenshots/toolbar_open.png" width="25%">
+<img src="https://github.com/sooink/flutter_pintap/raw/main/screenshots/toolbar_open.png" width="200px" style="padding-left: 25px" alt="Flutter Pintap Toolbar Open">
 
 1. **Open Toolbar** — Tap the floating action button (FAB)
 2. **Select Mode** — Click **Select**, then tap any widget
