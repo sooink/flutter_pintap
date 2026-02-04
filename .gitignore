@@ -1,0 +1,39 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+pubspec.lock
+
+# Generated files
+**/doc/api/
+**/ios/Flutter/.last_build_id
+app.*.symbols
+app.*.map.json
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# Android
+android/**/gradle-wrapper.jar
+.gradle/
+
+# iOS/macOS
+**/Pods/
+**/Podfile.lock
+**/.symlinks/
+
+# Coverage
+coverage/
+
+# Local/personal files
+*.local
+*.local.*
+*_BACKUP/

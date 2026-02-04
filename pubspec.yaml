@@ -1,0 +1,17 @@
+name: flutter_pintap
+description: Visual feedback tool for AI agents. Tap widgets, add notes, copy structured output.
+version: 0.1.0
+homepage: https://github.com/sooink/flutter_pintap
+
+environment:
+  sdk: ^3.5.0
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
