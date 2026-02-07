@@ -30,6 +30,8 @@ class PintapToolbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hasAnnotations = annotationCount > 0;
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(PintapConstants.toolbarRadius),
       child: BackdropFilter(
@@ -71,10 +73,13 @@ class PintapToolbar extends StatelessWidget {
               ),
               const _Divider(),
               ToolButton(
-                icon: copySuccess ? PintapIconType.check : PintapIconType.copy,
+                icon: copySuccess && hasAnnotations
+                    ? PintapIconType.check
+                    : PintapIconType.copy,
                 label: 'Copy ($annotationCount)',
                 onTap: onCopy,
-                isActive: copySuccess,
+                isActive: copySuccess && hasAnnotations,
+                isEnabled: hasAnnotations,
               ),
               const SizedBox(width: 4),
               ToolButton(

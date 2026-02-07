@@ -5,8 +5,8 @@
 **Visual feedback tool for AI Agents in Flutter**
 
 [![pub package](https://img.shields.io/pub/v/flutter_pintap.svg?style=flat-square)](https://pub.dev/packages/flutter_pintap)
-[![Flutter](https://img.shields.io/badge/Flutter-3.0+-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-3.0+-0175C2?style=flat-square&logo=dart)](https://dart.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.10+-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.5+-0175C2?style=flat-square&logo=dart)](https://dart.dev)
 [![License](https://img.shields.io/badge/License-BSD--3--Clause-blue?style=flat-square)](LICENSE)
 
 </div>
@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
 | **Visual Highlight** | Selected widgets show border + file:line label |
 | **Note Dialog** | Add feedback notes with glassmorphism UI |
 | **Annotation List** | View all annotations, delete individually (max 10) |
-| **Markdown Export** | Copy structured markdown for AI agents |
+| **Markdown Export** | Copy structured markdown for AI agents (Copy disabled when list is empty) |
 | **Freeze Mode** | Stop animations completely for easier selection |
 | **Zero Dependencies** | Pure Flutter SDK only |
 
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
 2. **Select Mode** — Click **Select**, then tap any widget
 3. **Add Note** — Enter your feedback in the dialog
 4. **Manage List** — Click **List** to view/delete annotations
-5. **Copy Markdown** — Click **Copy** and paste to your AI agent
+5. **Copy Markdown** — Click **Copy** and paste to your AI agent (enabled only when annotation count > 0)
 
 ## Markdown Output
 

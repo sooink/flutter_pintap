@@ -8,6 +8,7 @@ class ToolButton extends StatefulWidget {
   final bool isActive;
   final VoidCallback onTap;
   final bool isDestructive;
+  final bool isEnabled;
 
   const ToolButton({
     super.key,
@@ -16,6 +17,7 @@ class ToolButton extends StatefulWidget {
     required this.isActive,
     required this.onTap,
     this.isDestructive = false,
+    this.isEnabled = true,
   });
 
   @override
@@ -33,34 +35,47 @@ class _ToolButtonState extends State<ToolButton> {
             ? PintapColors.successGreen
             : PintapColors.selectActive);
 
-    final bg = widget.isActive
-        ? activeColor.withValues(alpha: 0.12)
-        : (_isHovered ? PintapColors.buttonHover : Colors.transparent);
+    final bg = !widget.isEnabled
+        ? Colors.transparent
+        : widget.isActive
+            ? activeColor.withValues(alpha: 0.12)
+            : (_isHovered ? PintapColors.buttonHover : Colors.transparent);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
+      cursor: widget.isEnabled
+          ? SystemMouseCursors.click
+          : SystemMouseCursors.basic,
+      onEnter:
+          widget.isEnabled ? (_) => setState(() => _isHovered = true) : null,
+      onExit:
+          widget.isEnabled ? (_) => setState(() => _isHovered = false) : null,
       child: GestureDetector(
-        onTap: widget.onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
-          width: PintapConstants.toolButtonSize,
-          height: PintapConstants.toolButtonSize,
-          decoration: BoxDecoration(
-            color: bg,
-            borderRadius:
-                BorderRadius.circular(PintapConstants.toolButtonRadius),
-            border: widget.isActive
-                ? Border.all(color: activeColor.withValues(alpha: 0.4), width: 1)
-                : Border.all(color: Colors.transparent),
-          ),
-          child: Center(
-            child: PintapIcon(
-              widget.icon,
-              isActive: widget.isActive,
-              color: widget.isDestructive && !widget.isActive
-                  ? PintapColors.textSecondary
-                  : null,
+        onTap: widget.isEnabled ? widget.onTap : null,
+        child: Opacity(
+          opacity: widget.isEnabled ? 1 : 0.4,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 150),
+            width: PintapConstants.toolButtonSize,
+            height: PintapConstants.toolButtonSize,
+            decoration: BoxDecoration(
+              color: bg,
+              borderRadius:
+                  BorderRadius.circular(PintapConstants.toolButtonRadius),
+              border: widget.isActive && widget.isEnabled
+                  ? Border.all(
+                      color: activeColor.withValues(alpha: 0.4), width: 1)
+                  : Border.all(color: Colors.transparent),
+            ),
+            child: Center(
+              child: PintapIcon(
+                widget.icon,
+                isActive: widget.isActive && widget.isEnabled,
+                color: !widget.isEnabled
+                    ? PintapColors.textMuted
+                    : widget.isDestructive && !widget.isActive
+                        ? PintapColors.textSecondary
+                        : null,
+              ),
             ),
           ),
         ),

@@ -74,6 +74,8 @@ class _FlutterPintapState extends State<FlutterPintap> {
   }
 
   void _copy() async {
+    if (_annotations.isEmpty) return;
+
     final generator = MarkdownGenerator();
     final text = generator.generate(_annotations);
     await Clipboard.setData(ClipboardData(text: text));
@@ -88,6 +90,7 @@ class _FlutterPintapState extends State<FlutterPintap> {
       _isSelectMode = false;
       _isOpen = false;
       _annotations.clear();
+      _copySuccess = false;
       _selectedWidgetData = null;
     });
   }
